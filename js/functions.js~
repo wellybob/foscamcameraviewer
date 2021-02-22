@@ -1,0 +1,17 @@
+
+//give the index No. of selected list item//
+function Index() {
+function GetIndex() {
+window.location.href="TestFirefoxOSUpdateForm.html";}
+
+//1. inspection: if there any cam?!!!THERES IS NO INSPECTION
+//2. if yes :gets stream with toolbar
+//3. if no: ONLY toolbar appears!!!IT HAPPENS ALSO IF THERE IS AN ERROR!!!
+//it needs a real inspection on connection e.t.c. and throw error!! -->
+window.onload=ccamstream();
+
+//törli a kiválasztott kamerát a DELETE gomb onclickre
+ function DeleteCam() {
+$.jStorage.deleteKey('camdata' + localStorage.getItem("CamLocator"));
+window.location.href="indexSECTIONproba.html";
+}
