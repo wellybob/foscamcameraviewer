@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/custom.css">
+<style> blockquote {font-size: 200%;}</style>
+</head>
+<body>
+<blockquote>Logikai adatbázis
+Az adatbázis célja, hogy tárolja az IP kamerák alábbi adatait: név (a user adja), url (a kamera gyári url-je), a port, a bejelentkezési név, a jelszó.
+Ezekből az adatbázis elemekből rakja össze a program azt az url-t amit a kamera felé elküld.</blockquote>
+<blockquote>
+A strukturát egydimenziós tömbök adják, ahol a egy-egy tömb neve alatt 5 elem helyezkedik el, 0-tól 4-ig indexelve.
+A tömbök nevei két részből állnak. Az első rész betűjelekből áll, és mindegyik kameránál azonos. A név utolsó karaktere viszont egy szám, ez a szám a kamera sorszáma az adatbázison belül, amely a program futásakor dinamikusan változtatható, ezáltal használható fel a tömbök közötti váltásokra.
+Az adatbázisban négy kamera adatai lesznek tárolva.</blockquote>
+<blockquote> Az adatbázis kliens-oldali megvalósítású. A böngésző helyi tárolóját (HTML5 localstorage) használó jStorage nevű JQuery könyvtár segítségével kerül kialakításra. A jStorage rendelkezik azokkal az alapvető adatbáziskezelő funkciókkal, amelyek az alkalmazáshoz szükségesek.</blockquote>
+</body>
+</html>

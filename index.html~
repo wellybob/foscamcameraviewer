@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, user-scalable=no"/>
+<title></title>
+<style type="text/css">
+</style>
+<!-- styles !-->
+<link href="style/plus.css" rel="stylesheet" type="text/css">
+<link href="headers.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="style/action_menu.css">
+<link rel="stylesheet" href="style/layout.css">
+  <link rel="stylesheet" href="style/buttons.css">
+  <link rel="stylesheet" href="style/confirm.css">
+  <link rel="stylesheet" href="style/edit_mode.css">
+  <link rel="stylesheet" href="style/headers.css">
+  <link rel="stylesheet" href="style/input_areas.css">
+  <link rel="stylesheet" href="style/status.css">
+  <link rel="stylesheet" href="style/switches.css">
+  <link rel="stylesheet" href="style/drawer.css">
+  <link rel="stylesheet" href="style/lists.css">
+  <link rel="stylesheet" href="style/progress_activity.css">
+  <link rel="stylesheet" href="style/scrolling.css">
+  <link rel="stylesheet" href="style/seekbars.css">
+  <link rel="stylesheet" href="style/tabs.css">
+  <link rel="stylesheet" href="style/toolbars.css">
+  <link rel="stylesheet" href="style/toolbaricons.css">
+  
+  <link rel="stylesheet" href="icons/styles/action_icons.css">
+  <link rel="stylesheet" href="icons/styles/media_icons.css">
+  <link rel="stylesheet" href="icons/styles/comms_icons.css">
+  <link rel="stylesheet" href="icons/styles/settings_icons.css">
+  <link rel="stylesheet" href="transitions.css">
+  <link rel="stylesheet" href="util.css">
+	<link rel="stylesheet" href="css/custom2.css">
+<link rel="stylesheet" href="style/value_selector.css">
+  <style> /*camera output style*/
+  img {height: 100px; width: 140px; float: left; margin-top: 53px; margin-left: 15px;}
+  img:hover {height: 200px; width: 300px}
+  .indexofcam {color: white;}
+  </style>
+
+<!-- jQuery !-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="https://raw.githubusercontent.com/andris9/jStorage/master/jstorage.js"></script>
+
+<!-- special javascript files !-->
+<script src="js/GetCamData.js"></script>
+<script src="js/CreateCamDataFunction.js"></script>
+<script src="js/GetUrl.js"></script>
+<script src="js/camstream.js"></script>
+<script src="js/UpdateCamDataFunction.js"></script>
+
+<script src="js/DeleteCam.js"></script>
+
+<!-- refresh url request !-->
+<script type="text/javascript">
+window.onload=ccamstream();
+</script>
+</head>
+<body role="application">
+  <section id="index" data-position="current">
+    <section data-type="sidebar">
+      <header>
+        <menu type="toolbar">
+          <a href="#">Done</a>
+        </menu>
+      </header>
+      <nav>
+        <ul>
+          <li><a href="DataInputFieldToAddNewCamera.html">ADD NEW</a></li>
+          <h3>UPDATE</h3>
+          <ul class="indexofcam"></ul>
+  <script>
+var namex0=$("<li></li>").text(GetCamData(0,0));   
+var namex1=$("<li></li>").text(GetCamData(1,0));   
+var namex2=$("<li></li>").text(GetCamData(2,0));   
+var namex3=$("<li></li>").text(GetCamData(3,0));   
+
+ $(".indexofcam").append(namex0, namex1, namex2, namex3);
+ $(".indexofcam").on("click", "li", function() {
+    var f=$(this).index();
+    localStorage.setItem("CamLocator", f);
+    window.location.href="UpdateCamDataInputField.html";
+});
+</script>
+
+          <h3>DELETE</h3>
+          <ul class="indexofcam2"></ul>
+  <script>
+var namex0=$("<li></li>").text(GetCamData(0,0));   
+var namex1=$("<li></li>").text(GetCamData(1,0));   
+var namex2=$("<li></li>").text(GetCamData(2,0));   
+var namex3=$("<li></li>").text(GetCamData(3,0));   
+ $(".indexofcam2").append(namex0, namex1, namex2, namex3);
+ $(".indexofcam2").on("click", "li", function() {
+    var f=$(this).index();
+  localStorage.setItem("CamLocator", f);
+    window.location.href="#confdel";
+});
+</script>
+    </ul>
+      </nav>
+    </section>
+    
+    <section id="drawer" role="region">
+      <header class="fixed">
+        <a href="#"><span class="icon icon-menu">hide sidebar</span></a>
+        <a href="#drawer"><span class="icon icon-menu">show sidebar</span></a>
+        <h1>IP CAMERA VIEWER</h1>
+      </header>
+
+<section role="region" class="vbox fit" id="confdel" data-position="right">
+        <form role="dialog" data-type="confirm">
+  <section>
+    <h1>Confirmation</h1><!-- this heading is optional -->
+    <p>Are you sure you want to delete this camera?</p>
+  </section>
+  <menu>
+    <button onclick="window.location.href='index.html' ">Cancel</button>
+   <button id="confirm-delete-camera"  onclick="DeleteCam()" class="danger">Delete</button>
+</menu>
+</form>
+    </section>
+    
+<div id="camstr1"></div>
+<div id="camstr2"></div>
+<div id="camstr3"></div>
+<div id="camstr4"></div>
+
+<script>
+document.getElementById("camstr1").appendChild(CameraStream1);
+document.getElementById("camstr2").appendChild(CameraStream2);
+document.getElementById("camstr3").appendChild(CameraStream3);
+document.getElementById("camstr4").appendChild(CameraStream4);
+</script>
+</section>
+
+
+</body>
+</html>

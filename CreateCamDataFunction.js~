@@ -1,0 +1,44 @@
+function CreateCamData(){
+var camdata=new Array();
+//$.jStorage.deleteKey('camdata0');
+//$.jStorage.deleteKey('camdata1');
+//$.jStorage.deleteKey('camdata2');
+//$.jStorage.deleteKey('camdata3');
+
+//if storage is null, the type is object, if it is with value, it is a string
+//if storage variable is empty, store values, if not, stpes to next variable
+var typ0=typeof $.jStorage.get('camdata0');
+var typ1=typeof $.jStorage.get('camdata1');
+var typ2=typeof $.jStorage.get('camdata2');
+var typ3=typeof $.jStorage.get('camdata3');
+//alert("camdata0:   "+typ0);
+//alert("camdata1:   "+typ1);
+//alert("camdata2:   "+typ2);
+//alert("camdata3:   "+typ3);
+if (typ0=='object') {var f=0;}
+else if (typ1=='object') { var f=1;}
+else if (typ2=='object') { var f=2;}
+else if (typ3=='object') { var f=3;}
+
+//alert("f=   "+f);
+//data from DataInputFieldToAddNewCamera.html
+var camname=document.datainput.elements[0].value;
+var camurl=document.datainput.elements[1].value;
+var camport=document.datainput.elements[2].value;
+var camusername=document.datainput.elements[3].value;
+var campassword=document.datainput.elements[4].value;
+
+camdata[f]=[camname, camurl, camport, camusername, campassword];
+$.jStorage.set('camdata'+f, JSON.stringify(camdata[f]));
+var storedCams= JSON.parse($.jStorage.get('camdata'+f));
+//alert($.jStorage.get('camdata'));
+//alert("camdata0:  " + $.jStorage.get('camdata0'));
+//alert("camdata1:  " + $.jStorage.get('camdata1'));
+//alert("camdata2:  " + $.jStorage.get('camdata2'));
+//alert("camdata3:  " + $.jStorage.get('camdata3'));
+//alert("jStorage['camdata'+f] with parse by 'array index number':  " + storedCams[f]);
+//alert(" jStorage.get('camdata1'): it work outsid the func:   "+$.jStorage.get('camdata1'));
+var storedCams= JSON.parse($.jStorage.get('camdata1'));
+//alert("item from the array:" + storedCams[1]);
+//return camdata[1];
+}

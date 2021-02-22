@@ -1,0 +1,39 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><title></title>
+<link rel="stylesheet" href="style/input_areas.css">
+<link rel="stylesheet" href="style/value_selector.css">
+<link href="style/lists.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/json2/20110223/json2.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script src="https://raw.github.com/andris9/jStorage/master/jstorage.js"></script>
+<script src="GetCamData.js"></script>
+<script src="GetUrl.js"></script>
+<script>
+//give the index No. of selected list item
+function Index() {
+var f=document.getElementById("IndexOfCam").selectedIndex;
+localStorage.setItem("CamLocator", f)}
+function GetIndex() {
+window.location.href="UpdateCamDataInputField.html";
+}</script>
+
+</head>
+<body>
+
+  
+  <header>CHOOSE A CAMERA</header>
+  <select id="IndexOfCam"></select>
+  <input type="button" onclick="GetIndex(); Index();" value="update it">
+  <script>
+//probléma ugyanaz, ha nincs ellenőrzés a GetCamData.jsben, egy üres adat
+//esetén nem ad ki semmit
+//viszont létrehozza a <li > HTML itemet
+var namex0=$("<option></option>").text(GetCamData(0,0));   
+var namex1=$("<option></option>").text(GetCamData(1,0));   
+var namex2=$("<option></option>").text(GetCamData(2,0));   
+var namex3=$("<option></option>").text(GetCamData(3,0));   
+ $("select").append(namex0, namex1, namex2, namex3);
+</script>
+</body>
+</html>

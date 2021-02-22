@@ -1,0 +1,13 @@
+function UpdateCamData(){
+//data from DataInputFieldToAddNewCamera.html
+var camdata=new Array();
+var namme=document.datainput.elements[0].value;
+var url=document.datainput.elements[1].value;
+var porrt=document.datainput.elements[2].value;
+var username=document.datainput.elements[3].value;
+var password=document.datainput.elements[4].value;
+var f=localStorage.getItem("CamLocator");
+camdata[f]=[namme, url, porrt, username, password];
+$.jStorage.set('camdata'+f, JSON.stringify(camdata[f]));
+//var storedCams= JSON.parse($.jStorage.get('camdata'+f));
+}

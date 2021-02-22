@@ -1,0 +1,10 @@
+{
+"version": "1.0",
+"name": "FOSCAMBUILD",
+"description": "",
+"launch_path": "/index.html", 
+"fullscreen": "true",
+"developer": { "name": "Tom", "url": "http://" },
+ "icons": { "30": "/images/foscampicture.jpg"},
+  "default_locale": "en"
+}
